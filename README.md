@@ -1,63 +1,96 @@
-<h1>Titulo</h1>
-
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <h1>Proyecto Laravel con Jetstream</h1>
+    <p>Este es un proyecto de Laravel que utiliza Jetstream para la autenticación y gestión de usuarios.</p>
+    <h2>Configuración inicial del proyecto</h2>
+    <ol>
+      <li>Instalar Laravel: <code>composer create-project laravel/laravel nombre-del-proyecto</code></li>
+      <li>Instalar Jetstream: <code>composer require laravel/jetstream</code></li>
+      <!-- <li>Publicar los archivos de Jetstream: <code>php artisan jetstream:install livewire</code></li>
+      <li>Ejecutar las migraciones: <code>php artisan migrate</code></li>
+      <li>Instalar las dependencias de NPM: <code>npm install && npm run dev</code></li> -->
+    <p>Para comprobar que tengas instaldo Laravel, en tu carpeta raíz del proyecto usa el comando: 
+    </p>
+    <code>php artisan --version</code>
+    <p>La versión minima requerida para este proyecto es la 12. Luego para poder verificar el servidor de desarrollo, utilizamos en la terminal dentro de la carpeta del proyecto el comando: </p>
+    <code>php artisan serve</code>
+    <p>Esto nos mostrará la url en la que se está ejecutando el proyecto, que normalmente es: http://localhost:8000</p>
+    <p>Una vez que si instaló todo correctamente y lo comprobamos con los comandos anteriores, la estructura de carpetas que se genera debería ser la siguiente:</p>
+    <pre><code>
+       - app/
+       - bootstrap/
+       - config/
+       - database/
+       - public/
+       - resources/
+       - routes/
+       - storage/
+       - tests/
+       - vendor/
+       - .env
+       - artisan
+       - composer.json
+       - composer.lock
+       - package.json
+       - phpunit.xml
+       - README.md</code></pre>
+    <h2>Comprobación de Jetstream</h2>
+    <p>> Para comprobat la instalación correcta de Jetstream utilizamos en la terminal del proyecto, el comando: </p>
+    <code>composer show laravel/jetstream</code>
+    <p>Esto es para confirmar que este listado en el archivo composer. Debio haber publicaod los siguientes recursos: </p>
+    <pre><code>
+      - Configuración: config/jetstream.php
+      - Vistas: resources/views/ (debería tener directorios como auth, profile, layouts)
+      - Migraciones: Revisa en database/migrations/ las migraciones de Jetstream
+      - Traducciones: lang/vendor/jetstream/
+    </code></pre>
+    <p>Si todo está en orden, ya tienes Laravel con Jetstream instalado.</p>
+    <h2>Base de datos</h2>
+    <p>> Crea una base de dato con XAMPP para poder migrar ahí las tablas.</p>
+    <p>Luego en el archivo .env configura los datos de la base de datos:</p>
+    <pre><code>
+      DB_CONNECTION=mysql
+      DB_HOST=
+      DB_PORT=3306
+      DB_DATABASE=nombre_de_la_base_de_datos
+      DB_USERNAME=tu_usuario
+      DB_PASSWORD=tu_contraseña
+    </code></pre>
+    <p>Luego ejecuta el comando en la terminal del proyecto:</p>
+    <code>php artisan migrate</code>
+    <p>Esto creará las tablas necesarias en la base de datos.</p>
+    <h2>Instalación de complementos</h2>
+    <p>> Finalmente, para instalar las dependencias de Node.js y compilar los assets, ejecuta:</p>
+    <code>npm install && npm run dev</code>
+    <p>Con esto, el proyecto de Laravel con Jetstream debería estar configurado adecuadamente.</p>
+    <p>> Ahora se ajusta la zona horaria</p>
+    <p>Abre el archivo <code>"config/app.php"</code> y localiza la línea que define la zona horaria: </p>
+    <pre><code>'timezone' => 'UTC',</code></pre>
+    <p>Cámbia a la zona horaria: </p>
+    <pre><code>'timezone' => 'America/Merida',</code></pre>
+    <p>Guarda los cambios en el archivo.</p>
+    <h2>Perzonalización visual básica</h2>
+    <p>Abre el archivo <code>"config/jetstream.php"</code> y busca la siguiente línea:</p>
+    <pre><code>
+      'features' => [
+        // Features::profilePhotos(),
+        // Features::api(),
+        // Features::teams(['invitations' => true]),
+        // Features::accountDeletion(),
+      ],
+    </code></pre>
+    <p>Descomenta la línea <code>Features::profilePhotos(),</code> para habilitar las fotos de perfil de usuario. Guarda los cambios en el archivo.</p>
+    <p>Luego, para aplicar los cambios visuales, ejecuta nuevamente el comando:</p>
+    <code>npm run dev</code>
+    <p>Esto recompilará los assets y aplicará las nuevas configuraciones visuales
+    al proyecto.</p>
+  </div>
+</body>
+</html>
