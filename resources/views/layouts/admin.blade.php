@@ -1,15 +1,16 @@
-{{-- TOma los parametros de dashboard --}}
-@props(['breadcrumb' => []])
+{{--toma los parametros del dash board--}}
+@props([
+  'title' =>'config'('app.name', 'Laravel'),
+  'breadcrumbs'=>[]])
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ $title }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -17,37 +18,31 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="https://kit.fontawesome.com/32ef592ab6.js" crossorigin="anonymous"></script>
 
-        <script src="https://kit.fontawesome.com/d0d169d7a8.js" crossorigin="anonymous"></script>
-
-        <wireui:scripts/>
-
+        <wireui:scripts />
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased bg-gray-100">
+    <body class="font-sans antialiased bg-gray-50">
+        <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+     
+     @include('layouts.includes.admin.navigation')
 
-      @include('layouts.includes.admin.navigation')
+     @include('layouts.includes.admin.sidebar')
 
-      @include('layouts.includes.admin.sidebar')
+<div class="p-4 sm:ml-64">
+        <!--añadir margen superior-->
+        <div class="mt-14 flex items-center justify-between w-full"> 
+          @include('layouts.includes.admin.breadcrumb')
 
-    <div class="p-4 sm:ml-64">
-      <!-- Añadir margen superior-->
-       <div class = "mt-14 flex items-center justify-between w-full">
-         @includes('layouts.includes.admin.breadcrumb')
-       </div>
+        </div>
 
-       {{$slot}}
-
-   </div>
-</div>
-
-
-
+      {{$slot}}
+      
+    </div>
         @stack('modals')
 
         @livewireScripts
-
-        <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
     </body>
 </html>
