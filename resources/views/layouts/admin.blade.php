@@ -20,6 +20,10 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <script src="https://kit.fontawesome.com/32ef592ab6.js" crossorigin="anonymous"></script>
 
+      {{-- Sweet Alert 2 --}}
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
         <wireui:scripts />
         <!-- Styles -->
         @livewireStyles
@@ -33,7 +37,7 @@
 
 <div class="p-4 sm:ml-64">
         <!--añadir margen superior-->
-        <div class="mt-14 flex items-center justify-between w-full"> 
+        <div class="mt-14 flex items-center justify-between w-full">
           @include('layouts.includes.admin.breadcrumb')
 
         @isset($action)
@@ -47,5 +51,13 @@
         @stack('modals')
 
         @livewireScripts
+
+        {{-- Mostrar Sweet Alert --}}
+        @if (@session('swal'))
+          <script>
+            Swal.fire(@json(session('swal')));
+          </script>
+        @endif
+
     </body>
 </html>
