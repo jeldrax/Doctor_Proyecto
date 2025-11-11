@@ -59,5 +59,32 @@
           </script>
         @endif
 
+      <script>
+        // Usar delegación de eventos para capturar los envíos de formularios de eliminación
+        document.addEventListener('submit', function(e) {
+            // Comprobar si el formulario enviado tiene la clase 'delete-from'
+            if (e.target.classList.contains('delete-from')) {
+                // Prevenir el envío inmediato del formulario
+                e.preventDefault();
+
+                // Usar SweetAlert para la confirmación
+                Swal.fire({
+                    title: '¿Estás seguro?',
+                    text: "¡No podrás revertir esto!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sí, ¡bórralo!',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    // Si el usuario confirma, enviar el formulario
+                    if (result.isConfirmed) {
+                        e.target.submit();
+                    }
+                });
+            }
+        });
+      </script>
     </body>
 </html>
