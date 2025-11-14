@@ -17,6 +17,12 @@
          'href' => route('admin.roles.index'),
          'active' => request()->routeIs('admin.roles.*'),
       ],
+      [
+         'name' => 'Usuarios',
+         'icon' => 'fa-solid fa-shield-halved',
+         'href' => route('admin.users.index'),
+         'active' => request()->routeIs('admin.users.*'),
+      ],
 
    ];
 @endphp
