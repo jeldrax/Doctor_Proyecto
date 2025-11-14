@@ -1,10 +1,7 @@
 <x-admin-layout :breadcrumbs="[
+
     [
-        'name'=>'ITMérida',
-        'href'=> route('admin.dashboard'),
-    ],
-    [
-       'name'=>'DSC',
+       'name'=>'Dashboard',
         'href'=> route('admin.dashboard'),
     ],
     ['name' => 'Usuarios'],
