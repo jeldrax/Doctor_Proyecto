@@ -19,9 +19,15 @@
       ],
       [
          'name' => 'Usuarios',
-         'icon' => 'fa-solid fa-shield-halved',
+         'icon' => 'fa-solid fa-user',
          'href' => route('admin.users.index'),
          'active' => request()->routeIs('admin.users.*'),
+      ],
+      [
+         'name' => 'About us',
+         'icon' => 'fa-solid fa-user-group',
+         'href' => route('admin.about.index'),
+         'active' => request()->routeIs('admin.about.*'),//cambiar a admin.about.*
       ],
 
    ];
